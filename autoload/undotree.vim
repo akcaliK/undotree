@@ -340,7 +340,7 @@ function! s:undotree.BindKey() abort
     for i in s:keymap
         silent exec 'nmap '.map_options.i[1].' <plug>Undotree'.i[0]
         silent exec 'nnoremap '.map_options.'<plug>Undotree'.i[0]
-            \ .' :call <sid>undotreeAction("'.i[0].'")<cr>'
+            \ .' :call ' .. expand('<sid>') .. 'undotreeAction("'.i[0].'")<cr>'
     endfor
     if exists('*g:Undotree_CustomMap')
         call g:Undotree_CustomMap()
